@@ -1,6 +1,7 @@
 from tkinter import *
 from playsound import playsound
 import os
+from pydub impor
 
 dir2 = os.getcwd()
 
