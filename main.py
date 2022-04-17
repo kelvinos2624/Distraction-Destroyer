@@ -81,7 +81,6 @@ def aboutPressed():
   info.grid(row=8, column=5)
   customer_reviews.grid(row = 9, column = 5)
   
-  
   back_button = Button(about_frame, text = "Back", command = back)
   back_button.grid(row = 12, column = 5)
   about_frame.grid(row =0, column = 0)
@@ -171,10 +170,15 @@ def schedulePressed():
   back_button.grid(row = 4, column = 1)
 
   lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
+  img2 = PhotoImage(file = dir +"/Images/Study.png", width=150, height=150)
+  lab2['image'] = img2
+  lab2.grid(row=8, column=1)
+  '''
+  lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
   img2 = PhotoImage(file = dir + "/Images/LOL.png", width=150, height=150)
   lab2['image'] = img2
   lab2.grid(row=8, column=1)  
-  
+  '''
 def creditsPressed():
   credit_frame = Frame(base_window)
   global current_frame
@@ -187,6 +191,11 @@ def creditsPressed():
   credits.grid(row=5, column=5)
   credit_frame.grid(row =0, column = 0)
 
+  lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
+  img2 = PhotoImage(file = dir + "/Images/LOL.png", width=150, height=150)
+  lab2['image'] = img2
+  lab2.grid(row=9, column=5) 
+  
   back_button = Button(credit_frame, text = "Back", command = back)
   back_button.grid(row = 8, column = 5)
 

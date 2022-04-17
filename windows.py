@@ -1,7 +1,6 @@
 from tkinter import *
-from playsound import playsound
+#import simpleaudio
 import os
-from pydub impor
 
 dir2 = os.getcwd()
 
@@ -18,11 +17,11 @@ def video_game_terminated():
   
 def chromeWarning():
   chr = Toplevel()
-  msg = Label(chr, text= "I hope you are using google for work purposes and not anything else.\n If you use gmail or any chat application remember to be professional and speak politely.\n No swearing")
+  msg = Label(chr, text= "I hope you are using google for work purposes and not anything else.\n If you use gmail or any chat application remember to be professional and speak politely.\n No swearing.\n Also absolutely NO WORDLE")
   msg.grid(row = 0, column = 0)
 
 def getToWork(task):
-  work = TopLevel()
+  work = Toplevel()
   msg = Label(work, text = "Time to start your task: " + task + ". All your games are not disabled until you complete your tasks. And don't even think about rushing :)")
   msg.grid(row=0, column=0)
   
@@ -34,9 +33,12 @@ def discordWarning():
 def youreLate(task):
   late = Toplevel()
   late.title("YOU'RE LATE")
-  latemsg = Label(late, text = "You're LATE on completing this task: " +task+ ".\n Big Brother is not impressed... \nNo video games for you until you finish your work.\n Don't rush, you don't want to submit work that looks like garbage.")
+  latemsg = Label(late, text = "You're LATE on completing this task: " +task+ ".\n Big Brother is not impresse... \nNo video games for you until you finish your work.\n Don't rush, you don't want to submit work that looks like garbage.")
   latemsg.grid(row=0, column=0)
-  playsound(dir2 + "\\Audio\\Sad.wav")
+  #https://realpython.com/lessons/simpleaudio/ - Credit
+  #music = simpleaudio.WaveObject.from_wave_file(dir2+"\Audio\Sad.wav")
+  #sing = music.play()
+  #sing.wait_done()
 
 def timeEndWarning():
   warn = Toplevel()

@@ -23,8 +23,8 @@ def is_active(tsk):
   end = getTime(tsk.endTime)
   eh = end[0]
   em = end[1]
-  currh = datetime.datetime.now().hour-4
-  currm = datetime.datetime.now().min
+  currh = datetime.datetime.now().hour
+  currm = datetime.datetime.now().minute
   if(sh<=currh<=eh):
     if(sh== currh):
       if(sm<=currm):
@@ -44,12 +44,14 @@ def is_active(tsk):
       
 def nearingEnd(tsk):
   end = getTime(tsk.endTime)
+  
   eh = end[0]
   em = end[1]
-  currh = datetime.datetime.now().hour-4
-  currm = datetime.datetime.now().min
+  currh = datetime.datetime.now().hour
+  currm = datetime.datetime.now().minute
   if(eh==currh):
-    if(em-currm<=10):
+    
+    if((em-currm)<=10):
       return True
     else:
       return False
@@ -65,22 +67,25 @@ def taskLate(tsk):
   end = getTime(tsk.endTime)
   eh = end[0]
   em = end[1]
-  currh = datetime.datetime.now().hour-4
-  currm = datetime.datetime.now().min
+  currh = datetime.datetime.now().hour
+  currm = datetime.datetime.now().minute
   if(eh<currh):
+    
     return True
   elif(eh==currh):
+    
     if(currm>em):
       return True
     else:
       return False
   else:
+    
     return False
 
 def isStarting(task):
   start = getTime(task.startTime)
-  currh = datetime.datetime.now().hour-4
-  currm = datetime.datetime.now().min
+  currh = datetime.datetime.now().hour
+  currm = datetime.datetime.now().minute
   sh = start[0]
   sm = start[1]
   if(sh==currh):
@@ -94,17 +99,19 @@ def active_check_loop(tasks):
   chr_warning_sent = False
   dis_warning_sent = False
   while True:
+    
     at_least_one_active = False
     for i in range(len(tasks)):
-      if nearingEnd(tasks[i]) and tasks[i].sent_check == False:
+      
+      if nearingEnd(tasks[i]) and (tasks[i].sent_check == False):
         tasks[i].sent_check = True
         windows.timeEndWarning()
       if is_active(tasks[i]):
         at_least_one_active = True
-      else:
-        if(taskLate(tasks[i]) and tasks[i].sent_late==False):
-          windows.youreLate(tasks[i].description)
-          tasks[i].sent_late = True
+      
+      if(taskLate(tasks[i]) and tasks[i].sent_late==False):
+        windows.youreLate(tasks[i].description)
+        tasks[i].sent_late = True
       if(isStarting(tasks[i]) and tasks[i].sent_start == False):
         tasks[i].sent_start = True
         windows.getToWork(tasks[i].description)
@@ -116,4 +123,4 @@ def active_check_loop(tasks):
       
       
         
-    time.sleep(15)
+    time.sleep(5)
