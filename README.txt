@@ -5,6 +5,14 @@ THIS PROGRAM IS COMPLETELY FREE
 THIS PROGRAM IS FOR WINDOWS ONLY(NO LINUX OR MACOS)
 This program is under the MIT License https://opensource.org/licenses/MIT
 
+When you download it from github, if you choose to run it in VS Code, make sure you open the subfolder named Distraction-Destroyer-main not the parent folder called Distraction-Destroyer-main
+
+Also please do not close the shell that pops up when the app is run, closing this will terminate the program
+
+We have tested that this program can shut down the following games/programs:
+Minecraft, Fortnite, Valorant, League of Legends, Bluestacks Client, Steam launcher, Epic Games launcher, Riot games launcher. 
+These are only the ones that we tested, however there are more that should work.
+
 Images made by Kelvin F usings Picsart
 Contributors to the project: Kelvin F, Nathan H, and Jason W
 
