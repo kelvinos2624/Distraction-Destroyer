@@ -112,6 +112,8 @@ def active_check_loop(tasks):
       if(taskLate(tasks[i]) and tasks[i].sent_late==False):
         windows.youreLate(tasks[i].description)
         tasks[i].sent_late = True
+      if(taskLate(tasks[i])):
+        at_least_one_active = True
       if(isStarting(tasks[i]) and tasks[i].sent_start == False):
         tasks[i].sent_start = True
         windows.getToWork(tasks[i].description)

@@ -13,7 +13,7 @@ We have tested that this program can shut down the following games/programs:
 Minecraft, Fortnite, Valorant, League of Legends, Bluestacks Client, Steam launcher, Epic Games launcher, Riot games launcher. 
 These are only the ones that we tested, however there are more that should work.
 
-Images made by Kelvin F usings Picsart
+Images made by Kelvin F usings Picsart.
 Contributors to the project: Kelvin F, Nathan H, and Jason W
 
 Source code and other information credits
