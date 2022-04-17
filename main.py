@@ -1,18 +1,18 @@
 from tkinter import *
 import random
 import os
-import time
-import datetime
 import threading
 import active
 base_window = Tk()
 import tasks
 import windows
 dir = os.getcwd()
-icon = PhotoImage(file = dir + "/Images/Icon1.png")
+#bgimg = Canvas(base_window, width = 400, height = 400)
+#bgimg.grid(fill = "both", expand = True)
+icon = PhotoImage(file = dir + "/Images/RealIcon.png")
 base_window.iconphoto(False, icon)
 base_window.title("Distraction Destroyer - The App you always wanted")
-base_window['background'] = '#ffffff'
+base_window['background'] = "#ffffff"
 
 welcome_widget_frame = Frame(base_window)
 welcome_widget_frame['background'] = '#ffffff'
@@ -26,27 +26,6 @@ lab = Label(welcome_widget_frame, borderwidth=0, highlightthickness=0)
 img = PhotoImage(file = dir +"/Images/Study.png", width=150, height=150)
 lab['image'] = img
 lab.grid(row=6, column=0)
-'''
-lab2 = Label(welcome_widget_frame, borderwidth=0, highlightthickness=0)
-img2 = PhotoImage(file = "~/Distraction-Destroyer/Images/discord.png", width=150, height=150)
-lab2['image'] = img2
-lab2.grid(row=6, column=4)
-
-lab3 = Label(base_window, borderwidth=0, highlightthickness=0)
-img3 = PhotoImage(file = "~/Distraction-Destroyer/Images/Study.png", width=150, height=150)
-lab3['image'] = img3
-lab3.grid(row=5, column=5)
-
-lab4 = Label(base_window, borderwidth=0, highlightthickness=0)
-img4 = PhotoImage(file = "~/Distraction-Destroyer/Images/Steam.png", width=150, height=150)
-lab4['image'] = img4
-lab4.grid(row=5, column=6)
-
-lab5 = Label(base_window, borderwidth=0, highlightthickness=0)
-img5 = PhotoImage(file = "~/Distraction-Destroyer/Images/Minecraft.png", width=150, height=150)
-lab5['image'] = img5
-lab5.grid(row=5, column=7)
-'''
 
 def loadMainMenu():
   #For the back button
@@ -69,14 +48,20 @@ def back():
   
 def aboutPressed():
   global current_frame
+  global img2
   about_frame = Frame(base_window)
   current_frame = about_frame
   for item in welcome_widget_frame.winfo_children():
     item.grid_forget()
   
   about = Label(about_frame, text = "About the program", font = "TimesNewRoman")
-  info = Label(about_frame, text = "This program is an aggressive reminder program designed to keep you on track\n so that you can actually get all of your work done.\n You can schedule tasks using the schedule button and it will send you reminders to get your work done.\n If it senses you playing a game like Minecraft during your work, it will give you a warning to stop\n and if you don't stop within 5 minutes, \n it shuts down your game. Additionally it has an accompanying discord bot that annoys\n you whenever you dare to get on discord to chat with friends.\n It can also send nice motivational messages too\n\n")
+  info = Label(about_frame, text = "This program is an aggressive reminder program designed to keep you on track\n so that you can actually get all of your work done.\n You can schedule tasks using the schedule button and it will send you reminders to get your work done.\n If it senses you playing a game like Minecraft during your work, it will give you a warning to stop\n and if you don't stop within 5 minutes, \n it shuts down your game. \n It can also send nice motivational messages too\n\n")
   customer_reviews = Label(about_frame, text = "Customer Reviews\nThis app is so great, I will buy it for my company - Jeff Pezos\n Definitely 5 out of 5 stars, greatest app of all time - Bob McBob\n These are all totally real reviews - Guy who never lies\n Can't wait to use it on my siblings to 'help them study better' - Very Nice Guy")
+  lab2 = Label(about_frame, borderwidth=0, highlightthickness=0)
+  img2 = PhotoImage(file = dir + "/Images/discord.png",  width=150, height=150)
+  lab2['image'] = img2
+  lab2.grid(row=13, column=5)
+
   about.grid(row=5, column=5)
   info.grid(row=8, column=5)
   customer_reviews.grid(row = 9, column = 5)
@@ -139,6 +124,7 @@ def schedulePressed():
   global task_end_time
   global task_time
   global dir
+  global img3
   schedule_frame = Frame(base_window)
   current_frame = schedule_frame
   for item in welcome_widget_frame.winfo_children():
@@ -168,20 +154,17 @@ def schedulePressed():
   
   back_button = Button(current_frame, text = "Back", command = back)
   back_button.grid(row = 4, column = 1)
-
-  lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
-  img2 = PhotoImage(file = dir +"/Images/Study.png", width=150, height=150)
-  lab2['image'] = img2
-  lab2.grid(row=8, column=1)
-  '''
-  lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
-  img2 = PhotoImage(file = dir + "/Images/LOL.png", width=150, height=150)
-  lab2['image'] = img2
-  lab2.grid(row=8, column=1)  
-  '''
+  
+  lab3 = Label(current_frame, borderwidth=0, highlightthickness=0)
+  img3 = PhotoImage(file = dir + "/Images/LOL.png", width=150, height=150)
+  lab3['image'] = img3
+  lab3.grid(row=8, column=1)  
+  
 def creditsPressed():
   credit_frame = Frame(base_window)
   global current_frame
+  global img2
+  global dir
   current_frame = credit_frame
 
   for item in welcome_widget_frame.winfo_children():
@@ -191,10 +174,10 @@ def creditsPressed():
   credits.grid(row=5, column=5)
   credit_frame.grid(row =0, column = 0)
 
-  lab2 = Label(current_frame, borderwidth=0, highlightthickness=0)
-  img2 = PhotoImage(file = dir + "/Images/LOL.png", width=150, height=150)
-  lab2['image'] = img2
-  lab2.grid(row=9, column=5) 
+  lab4 = Label(current_frame, borderwidth=0, highlightthickness=0)
+  img4 = PhotoImage(file = dir + "/Images/Steam.png", width=150, height=150)
+  lab4['image'] = img2
+  lab4.grid(row=9, column=5) 
   
   back_button = Button(credit_frame, text = "Back", command = back)
   back_button.grid(row = 8, column = 5)
@@ -202,6 +185,8 @@ def creditsPressed():
 
 def motivationPressed():
   global current_frame
+  global img3
+  global dir
   motivation_frame = Frame(base_window)
   current_frame = motivation_frame
   
@@ -215,18 +200,21 @@ def motivationPressed():
   while num == last_num:
     num = random.randint(0, len(quotes)-1)
   last_num = num'''
-  motivation = Label(motivation_frame, text = quotes[random.randint(0, len(quotes)-1)], font = "TimesNewRoman")
+  motivation = Label(current_frame, text = quotes[random.randint(0, len(quotes)-1)], font = "TimesNewRoman")
   motivation.grid(row=5, column=5)
   motivation_frame.grid(row=0, column=0)
+
+  lab3 = Label(current_frame, borderwidth=0, highlightthickness=0)
+  img3 = PhotoImage(file = dir + "/Images/Minecraft.png", width=150, height=150)
+  lab3['image'] = img3
+  lab3.grid(row=9, column=5)
   
   back_button = Button(motivation_frame, text = "Back", command = back)
   back_button.grid(row = 8, column = 5)
 
 def remove_tasks():
   for i in range(len(task_list)-1, -1, -1):
-    print(i, "loop")
     if task_list[i].completed.get() == True:
-      print(task_list[i].description, "removed")
       task_list.pop(i)
   back()
   viewPressed()
@@ -282,14 +270,7 @@ def viewPressed():
       
       check = Checkbutton(view_frame, text="Completed?", onvalue = True, offvalue = False, variable=task_list[task].completed)
       check.grid(row = task+1, column = 4)
-    #check_button_list.append(check)
     
-    #print(check_button_list)
-    #print(checked.get())
-    #print(check_button_list[0].get())
-  #print(task_list[0].completed is task_list[1].completed)
-  
-  
     remove_tasks_button = Button(view_frame, text="Remove completed tasks", command=remove_tasks)
     remove_tasks_button.grid(row = 8, column = 1)
   
@@ -308,18 +289,10 @@ creditsButton = Button(welcome_widget_frame, text = "Credits", bg = "#ffbe63", a
 
 motivationButton = Button(welcome_widget_frame, text = "Motivational Quote", bg = "#ff6666", activebackground = "#f54040", command=motivationPressed)
 
-
-
 loadMainMenu()
 welcome_widget_frame.grid_rowconfigure(0, weight = 1)
 welcome_widget_frame.grid_columnconfigure(0, weight = 1)
 base_window.grid_rowconfigure(0, weight = 1)
 base_window.grid_columnconfigure(0, weight = 1)
-'''
-title.pack()
-aboutButton.pack()
-scheduleButton.pack()
-creditsButton.pack()
-welcome_widget_frame.pack()
-'''
+
 base_window.mainloop()
