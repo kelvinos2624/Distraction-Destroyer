@@ -7,7 +7,7 @@ dir2 = os.getcwd()
 def startUpPopWindow():
   start_up = Toplevel()
   start_up.title("Start")
-  msg = Label(start_up, text = "In order for this app to actually work, it needs you to eliminate physical distractions.\n Put away your phone somewhere where you can't see it and won't be tempted to get it.\n Next, take any distracting things off your desk and put them away.\n Then, organize your desk so everything on it is nice and neat.\n Finally, collect all the things you need to work and start WORKING NOW.\n You can close this window. Remember, Big Brother could be watching you(jk).\n Also, you better not be in your pajamas!", font = "TimesNewRoman")
+  msg = Label(start_up, text = "In order for this app to actually work, it needs you to eliminate physical distractions.\n Put away your phone somewhere where you can't see it and won't be tempted to get it.\n Next, take any distracting things off your desk and put them away.\n Then, organize your desk so everything on it is nice and neat.\n Finally, collect all the things you need to work and start WORKING NOW.\n You can close this window. Remember, Big Brother could be watching you(jk).\n Also, you better not be in your pajamas! Dress up properly", font = "TimesNewRoman")
   msg.grid(row = 0, column = 0)
   start_up.attributes('-topmost', 1)
 

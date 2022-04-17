@@ -120,7 +120,5 @@ def active_check_loop(tasks):
       result = video_game_terminator.eliminate_all_games(chr_warning_sent, dis_warning_sent)
       chr_warning_sent = result[0]
       dis_warning_sent = result[1]
-      
-      
-        
+          
     time.sleep(5)

@@ -123,6 +123,33 @@ def validate_time(time):
                 return False
   else:
       return False
-          
-    
-    
+        
+def validate_start_end(start, end):
+  start_hour_min = start.split(":")
+  end_hour_min = end.split(":")
+  startH = start_hour_min[0]
+  if len(startH) == 2 and startH[0] == "0":
+    startH = startH[1]
+  startM = start_hour_min[1]
+  if startM[0] == "0":
+    startM = startM[1]
+  startH = int(startH)
+  startM = int(startM)
+  
+  endH = end_hour_min[0]
+  if len(endH) == 2 and endH[0] == "0":
+    endH = endH[1]
+  endM = end_hour_min[1]
+  if endM[0] == "0":
+    endM = endM[1]
+  endH = int(endH)
+  endM = int(endM)
+  if endH < startH:
+    return False
+  elif endH == startH:
+    if endM < startM:
+      return False
+    else:
+      return True
+  else:
+    return True
