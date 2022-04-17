@@ -1,5 +1,5 @@
 from tkinter import *
-#import simpleaudio
+import simpleaudio
 import os
 
 dir2 = os.getcwd()
@@ -42,9 +42,9 @@ def youreLate(task):
   latemsg = Label(late, text = "You're LATE on completing this task: " +task+ ".\n Big Brother is not impressed... \nNo video games for you until you finish your work.\n Don't rush, you don't want to submit work that looks like garbage.")
   latemsg.grid(row=0, column=0)
   #https://realpython.com/lessons/simpleaudio/ - Credit
-  #music = simpleaudio.WaveObject.from_wave_file(dir2+"\Audio\Sad.wav")
-  #sing = music.play()
-  #sing.wait_done()
+  music = simpleaudio.WaveObject.from_wave_file(dir2+"\Audio\Sad.wav")
+  sing = music.play()
+  sing.wait_done()
   late.attributes('-topmost', True)
 
 def timeEndWarning():
